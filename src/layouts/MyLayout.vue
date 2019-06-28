@@ -48,8 +48,8 @@ export default {
         if(response.session){ // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          this.user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
-          console.log(this.user);
+          user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
+          console.log(user);
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
