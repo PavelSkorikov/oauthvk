@@ -48,8 +48,9 @@ export default {
       //функция callback для авторизации
       function authInfo(response){
         if(response.session){ // Авторизация успешна
-          this.user = response.session.user;
-          console.log(user);
+          oauth_user = response.session.user;
+          console.log(oauth_user);
+          this.user = oauth_user;
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
