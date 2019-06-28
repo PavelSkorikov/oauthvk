@@ -10,7 +10,7 @@
 <script type="text/javascript">
   window.vkAsyncInit = function() {
     VK.init({
-      apiId: ВАШ_APP_ID
+      apiId: 7036301
     });
   };
 
@@ -29,7 +29,7 @@
 
 function load(){
 	//авторизация в ВК
-   VK.Auth.login(authInfo, YOUR_APP_PERMISSIONS);
+   VK.Auth.login(authInfo, Vhdbiy2tV6qv9vqHwHYB)
 	//функция callback для авторизации
    function authInfo(response){
     if(response.session){ // Авторизация успешна
