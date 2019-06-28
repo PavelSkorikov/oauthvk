@@ -11,6 +11,7 @@
     <div class="col-2"></div>
     <div class="col-8">
       <q-page-container>
+        hello {{user.first_name}}{{user.last_name}}<br>
         {{friends}}  
       </q-page-container>
     </div>
@@ -25,6 +26,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
+      user: {},
       friends: {}
     }
   },
@@ -46,7 +48,7 @@ export default {
       //функция callback для авторизации
       function authInfo(response){
         if(response.session){ // Авторизация успешна
-          var user = response.session.user;
+          this.user = response.session.user;
           console.log(user);
           getFriends();
         }else alert("Авторизоваться не удалось!");
