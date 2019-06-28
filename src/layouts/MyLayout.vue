@@ -12,6 +12,7 @@
     <div class="col-8">
       <q-page-container>
         <h4>Привет {{user.first_name}}</h4>
+        {{friends}}
       </q-page-container>
     </div>
     <div class="col-2"></div>
