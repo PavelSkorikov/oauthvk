@@ -11,8 +11,7 @@
     <div class="col-2"></div>
     <div class="col-8">
       <q-page-container>
-        hello {{'user.first_name'}}{{'user.last_name'}}<br>
-        {{friends}}  
+        hello {{user.first_name}}<br>
       </q-page-container>
     </div>
     <div class="col-2"></div>
