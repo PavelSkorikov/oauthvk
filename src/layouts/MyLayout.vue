@@ -10,10 +10,8 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-      <q-page-container>
         <h4>{{user}}</h4>
         {{friends}}
-      </q-page-container>
     </div>
     <div class="col-2"></div>
   </div>
@@ -50,7 +48,7 @@ export default {
         if(response.session){ // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          this.user = 'Привет'+vk_user.first_name+' '+vk_user.last_name;
+          this.user = 'Привет '+vk_user.first_name+' '+vk_user.last_name;
           console.log(this.user);
           getFriends();
         }else alert("Авторизоваться не удалось!");
