@@ -11,7 +11,7 @@
     <div class="col-2"></div>
     <div class="col-8">
       <q-page-container>
-        hello {{user.first_name}}<br>
+        <h4>Привет {{user.first_name}}</h4>
       </q-page-container>
     </div>
     <div class="col-2"></div>
