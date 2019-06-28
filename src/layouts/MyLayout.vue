@@ -51,6 +51,7 @@ export default {
           var oauth_user = response.session.user;
           console.log(oauth_user);
           this.user = oauth_user;
+          console.log(this.user.first_name);
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
