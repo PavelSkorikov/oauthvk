@@ -36,7 +36,7 @@ export default {
         function(r){
         if(r.response){
           r = r.response;
-          var ol = $('#clientApi').add('ol');
+          var ol = 'ol';
           for(var i = 0; i < r.length; ++i){
           var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
           }
