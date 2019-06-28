@@ -25,7 +25,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      friends: ''
+      friends: {}
     }
   },
   methods: {
@@ -36,11 +36,10 @@ export default {
         function(r){
         if(r.response){
           r = r.response;
-          var ol = 'ol';
+          console.log(r);
           for(var i = 0; i < r.length; ++i){
-          var li = ol.add('li').html(r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')')
+          this.friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
           }
-          this.friends = li
         }else alert("Не удалось получить список ваших друзей");
         })
       }
