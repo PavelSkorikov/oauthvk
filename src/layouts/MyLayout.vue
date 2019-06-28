@@ -48,6 +48,7 @@ export default {
       function authInfo(response){
         if(response.session){ // Авторизация успешна
           var user = response.session.user;
+          console.log(user);
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
