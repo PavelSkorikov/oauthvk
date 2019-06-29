@@ -54,8 +54,7 @@ export default {
         }else alert("Авторизоваться не удалось!");
       }
       //авторизация в ВК
-      VK.Auth.login(authInfo(), 'Vhdbiy2tV6qv9vqHwHYB')
-      console.log(this.user);
+      VK.Auth.login(authInfo, 'Vhdbiy2tV6qv9vqHwHYB')
     } 
   }
 }
