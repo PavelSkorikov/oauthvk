@@ -11,6 +11,7 @@
     <div class="col-2"></div>
     <div class="col-8">
          <q-btn color="white" text-color="black" :label="user" />
+         <h4>{{user}}</h4>
         
     </div>
     <div class="col-2"></div>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
   name: 'MyLayout',
   data () {
@@ -27,6 +29,9 @@ export default {
       user: '1',
       friends: {}
     }
+  },
+  watch: {
+
   },
   methods: {
     load() {
@@ -43,19 +48,24 @@ export default {
         }else alert("Не удалось получить список ваших друзей");
         })
       }
+      function setUser(data){
+        vm.user = data;
+      }
       //функция callback для авторизации
       function authInfo(response){
         if(response.session){ 
           // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          this.user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
-          alert(this.user);
+          setUser('Привет!   '+vk_user.first_name+' '+vk_user.last_name);
           //getFriends();
         }else alert("Авторизоваться не удалось!");
       }
       //авторизация в ВК
+      var vm = this
       VK.Auth.login(authInfo, 'Vhdbiy2tV6qv9vqHwHYB')
+      
+      
     } 
   }
 }
