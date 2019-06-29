@@ -42,8 +42,8 @@ export default {
         if(r.response){
           r = r.response;
           var vk_friends = [];
-          for(var i = 0; i < r.length; ++i){
-            vk_friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
+          for(var i = 0; i < 5; ++i){
+            vk_friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')';
           }
           console.log(vk_friends);
           setFriends(vk_friends[0]);
