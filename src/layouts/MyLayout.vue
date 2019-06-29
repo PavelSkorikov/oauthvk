@@ -37,7 +37,7 @@ export default {
     load() {
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name']}, 
+        VK.Api.call('friends.get', v=5.52, {fields: ['uid', 'first_name', 'last_name']}, 
         function(r){
         if(r.response){
           r = r.response;
@@ -69,7 +69,7 @@ export default {
       }
       //авторизация в ВК
       var vm = this
-      VK.Auth.login(authInfo, '84365d6184365d6184365d61be845d00ec8843684365d61d9237ea9062da2b88bd2afe7')
+      VK.Auth.login(authInfo, scope=friends)
       
       
     } 
