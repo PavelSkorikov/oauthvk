@@ -40,7 +40,7 @@ export default {
         VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], count: "5", v: "5.8"}, 
         function(r){
         if(r.response){
-          r = r.response;
+          r = r.response.items;
           console.log(r);
           var vk_friends = [];
           for(var i = 0; i < 5; ++i){
