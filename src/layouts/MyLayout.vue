@@ -26,15 +26,15 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      user: '1',
+      user: '',
       friends: []
     }
   },
-  watch: {
-
-  },
   methods: {
     load() {
+      function setFriends(data){
+        vm.friends = data;
+      }
       //функция сбора и вывода информации о друзьях
       function getFriends(){
         VK.Api.call('friends.get', v=5.52, {fields: ['uid', 'first_name', 'last_name']}, 
@@ -42,16 +42,13 @@ export default {
         if(r.response){
           r = r.response;
           console.log(r);
-          var friends = [];
+          var vk_friends = [];
           for(var i = 0; i < r.length; ++i){
-            friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
+            vk_friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
           }
-          setFriends(friends);
+          setFriends(vk_friends);
         }else alert("Не удалось получить список ваших друзей");
         })
-      }
-      function setFriends(data){
-        vm.friends = data;
       }
       function setUser(data){
         vm.user = data;
