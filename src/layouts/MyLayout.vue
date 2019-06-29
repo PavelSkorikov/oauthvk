@@ -10,8 +10,9 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-         <q-btn color="white" text-color="black" :label="user" />
-         <h4>{{user}}</h4>
+         <h4>{{user}}</h4><br>
+         {{friends}}
+
         
     </div>
     <div class="col-2"></div>
@@ -21,7 +22,6 @@
 </template>
 
 <script>
-import { setTimeout } from 'timers';
 export default {
   name: 'MyLayout',
   data () {
@@ -42,11 +42,16 @@ export default {
         if(r.response){
           r = r.response;
           console.log(r);
+          var friends = {};
           for(var i = 0; i < r.length; ++i){
-          this.friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
+            friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
           }
+          setFriends(friends);
         }else alert("Не удалось получить список ваших друзей");
         })
+      }
+      function setFriends(data){
+        vm.friends = data;
       }
       function setUser(data){
         vm.user = data;
@@ -58,7 +63,7 @@ export default {
           var vk_user = response.session.user;
           console.log(vk_user);
           setUser('Привет!   '+vk_user.first_name+' '+vk_user.last_name);
-          //getFriends();
+          getFriends();
         }else alert("Авторизоваться не удалось!");
       }
       //авторизация в ВК
