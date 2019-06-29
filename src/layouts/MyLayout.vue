@@ -2,6 +2,7 @@
 <q-layout view="lHh Lpr lFf">
   <q-tabs
     v-model="tab"
+    v-show="visible"
     inline-label
     class="bg-primary text-white shadow-2">
     <q-tab name="auth" @click="load" icon="people" label="Авторизация" />
@@ -26,11 +27,24 @@ export default {
   name: 'MyLayout',
   data () {
     return {
+      visible: true,
       user: '',
       friends: []
     }
   },
   methods: {
+    mounted(){
+      var vs = this
+      function hideVisibleBar(){
+        vs.visible = false;
+        vs.load;
+      }
+      VK.Auth.getLoginStatus(function(response){
+        if (response.status == 'connected'){
+          hideVisibleBar
+        }
+      })
+    },
     load() {
       function setFriends(data){
         vm.friends = data;
@@ -61,7 +75,7 @@ export default {
           var vk_user = response.session.user;
           console.log(vk_user);
           console.log(response.status);
-          setUser('Привет!   '+vk_user.first_name+' '+vk_user.last_name);
+          setUser(vk_user.first_name+' '+vk_user.last_name+' Вы авторизованы!');
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
