@@ -32,7 +32,7 @@ export default {
     load() {
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], order: 'name'}, 
+        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], 'count': 5}, 
         function(r){
         if(r.response){
           r = r.response;
@@ -48,13 +48,13 @@ export default {
         if(response.session){ // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
-          console.log(user);
-          getFriends();
+          this.user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
+          //getFriends();
         }else alert("Авторизоваться не удалось!");
       }
       //авторизация в ВК
       VK.Auth.login(authInfo, 'Vhdbiy2tV6qv9vqHwHYB')
+      console.log(this.user);
     } 
   }
 }
