@@ -44,16 +44,17 @@ export default {
         })
       }
       //функция callback для авторизации
-      function authInfo(response){
-        if(response.session){ // Авторизация успешна
+      function authInfo(user, response){
+        if(response.session){ 
+          // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          this.user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
+          user = 'Привет! '+vk_user.first_name+' '+vk_user.last_name;
           //getFriends();
         }else alert("Авторизоваться не удалось!");
       }
       //авторизация в ВК
-      VK.Auth.login(authInfo, 'Vhdbiy2tV6qv9vqHwHYB')
+      VK.Auth.login(authInfo(this.user), 'Vhdbiy2tV6qv9vqHwHYB')
       console.log(this.user);
     } 
   }
