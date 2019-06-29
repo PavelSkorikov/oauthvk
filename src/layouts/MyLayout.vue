@@ -27,7 +27,7 @@ export default {
   data () {
     return {
       user: '',
-      friends: []
+      friends: ''
     }
   },
   methods: {
@@ -41,12 +41,12 @@ export default {
         function(r){
         if(r.response){
           r = r.response;
-          console.log(r);
           var vk_friends = [];
           for(var i = 0; i < r.length; ++i){
             vk_friends[i] = r[i].first_name+' '+r[i].last_name+' ('+r[i].uid+')'
           }
-          setFriends(vk_friends);
+          console.log(vk_friends);
+          setFriends(vk_friends[0]);
         }else alert("Не удалось получить список ваших друзей");
         })
       }
