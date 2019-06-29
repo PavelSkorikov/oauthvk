@@ -33,7 +33,7 @@ export default {
     }
   },
   methods: {
-    mounted(){
+    created(){
       var vs = this
       function hideVisibleBar(){
         vs.visible = false;
