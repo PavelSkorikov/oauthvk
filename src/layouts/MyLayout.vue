@@ -66,7 +66,7 @@ export default {
       }
       //авторизация в ВК
       var vm = this
-      VK.Auth.login(authInfo, scope=friends)
+      VK.Auth.login(authInfo, scope='friends')
       
       
     } 
