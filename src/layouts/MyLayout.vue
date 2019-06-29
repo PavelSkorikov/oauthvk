@@ -37,7 +37,7 @@ export default {
       }
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', v: "5.8", {fields: ['uid', 'first_name', 'last_name'], count: "5"}, 
+        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], count: "5", v: "5.8"}, 
         function(r){
         if(r.response){
           r = r.response;
