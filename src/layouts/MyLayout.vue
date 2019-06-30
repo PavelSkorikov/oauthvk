@@ -45,6 +45,18 @@ export default {
         } else setVisibleBar;     
       }, "Vhdbiy2tV6qv9vqHwHYB")
   },
+  updated(){
+    console.log('created')
+      var vm = this
+      function setVisibleBar(){
+        vm.visible = true;
+      }
+      VK.Auth.getLoginStatus(function(response){
+        if(response.session){
+          vm.load(response);
+        } else setVisibleBar;     
+      }, "Vhdbiy2tV6qv9vqHwHYB")
+  },
   methods: {
     load(response) {
       var vm = this 
