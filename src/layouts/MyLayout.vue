@@ -41,8 +41,7 @@ export default {
       }
       VK.Auth.getLoginStatus(function(response){
         if(response.session){
-          console.log(response.status)
-          if (response.status == 'connected') vm.load(response);
+          vm.load(response);
         } else setVisibleBar;     
       }, "Vhdbiy2tV6qv9vqHwHYB")
   },
