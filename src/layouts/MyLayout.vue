@@ -44,7 +44,7 @@ export default {
           console.log(response.status)
           if (response.status == 'connected') vm.load(response);
         } else setVisibleBar;     
-      })
+      }, "Vhdbiy2tV6qv9vqHwHYB")
   },
   methods: {
     load(response) {
