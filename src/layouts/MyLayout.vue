@@ -33,7 +33,7 @@ export default {
       friends: []
     }
   },
-  mounted(){
+  created(){
     console.log('created')
       var vs = this
       function setVisibleBar(){
