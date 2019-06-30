@@ -35,17 +35,15 @@ export default {
   },
   mounted(){
     console.log('created')
-      var vs = this
+      var vm = this
       function setVisibleBar(){
-        vs.visible = true;
+        vm.visible = true;
       }
       VK.Auth.getLoginStatus(function(response){
         if(response.session){
           console.log(response.status)
-          if (response.status != 'connected'){
-            setVisibleBar;
-          } else vs.load(response);
-        }     
+          if (response.status == 'connected') vs.load(response);
+        } else setVisibleBar;     
       }, "Vhdbiy2tV6qv9vqHwHYB")
   },
   methods: {
