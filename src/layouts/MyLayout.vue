@@ -1,21 +1,18 @@
 <template>
 <q-layout view="lHh Lpr lFf">
- <template v-if="visible">
   <q-tabs
     v-model="tab"
     inline-label
     class="bg-primary text-white shadow-2">
     <q-tab name="auth" @click="auth" icon="people" label="Авторизация" />
   </q-tabs>
- </template>
 
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-         <h4>{{user}}</h4><br>
-         {{friends}}
-
-        
+         <q-page-container>
+          <router-view />
+        </q-page-container>
     </div>
     <div class="col-2"></div>
   </div>
@@ -28,35 +25,11 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      visible: false,
       user: '',
       friends: []
     }
   },
-  created(){
-    console.log('created')
-      var vm = this
-      function setVisibleBar(){
-        vm.visible = true;
-      }
-      VK.Auth.getLoginStatus(function(response){
-        if(response.session){
-          vm.load(response);
-        } else setVisibleBar;     
-      }, "Vhdbiy2tV6qv9vqHwHYB")
-  },
-  beforeUpdate(){
-    console.log('created')
-      var vm = this
-      function setVisibleBar(){
-        vm.visible = true;
-      }
-      VK.Auth.getLoginStatus(function(response){
-        if(response.session){
-          vm.load(response);
-        } else setVisibleBar;     
-      }, "Vhdbiy2tV6qv9vqHwHYB")
-  },
+  
   methods: {
     load(response) {
       var vm = this 
