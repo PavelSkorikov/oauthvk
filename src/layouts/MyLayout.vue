@@ -35,10 +35,10 @@ export default {
   },
   created(){
     console.log('created')
-  }
+  },
   methods: {
     created() {
-      
+      console.log('created')
       var vs = this
       function setVisibleBar(){
         vs.visible = true;
