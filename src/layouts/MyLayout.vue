@@ -45,7 +45,7 @@ export default {
         } else setVisibleBar;     
       }, "Vhdbiy2tV6qv9vqHwHYB")
   },
-  updated(){
+  beforeUpdate(){
     console.log('created')
       var vm = this
       function setVisibleBar(){
