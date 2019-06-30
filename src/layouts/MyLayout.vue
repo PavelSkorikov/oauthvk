@@ -1,13 +1,13 @@
 <template>
 <q-layout view="lHh Lpr lFf">
-  {{start}}
+ <template v-if="visible">
   <q-tabs
     v-model="tab"
-    v-if="visible"
     inline-label
     class="bg-primary text-white shadow-2">
     <q-tab name="auth" @click="load" icon="people" label="Авторизация" />
   </q-tabs>
+ </template>
 
   <div class="row">
     <div class="col-2"></div>
@@ -34,15 +34,15 @@ export default {
     }
   },
   methods: {
-    start() {
+    beforeCreate() {
       var vs = this
       function hideVisibleBar(){
         vs.visible = false;
         vs.load;
       }
       VK.Auth.getLoginStatus(function(response){
+        console.log(response.status)
         if (response.status == 'connected'){
-          console.log(response.status)
           hideVisibleBar
         }
       })
@@ -76,7 +76,6 @@ export default {
           // Авторизация успешна
           var vk_user = response.session.user;
           console.log(vk_user);
-          console.log(response.status);
           setUser(vk_user.first_name+' '+vk_user.last_name+' Вы авторизованы!');
           getFriends();
         }else alert("Авторизоваться не удалось!");
