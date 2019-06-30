@@ -28,7 +28,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      visible: true,
+      visible: false,
       user: '',
       friends: []
     }
@@ -36,14 +36,14 @@ export default {
   methods: {
     beforeCreate() {
       var vs = this
-      function hideVisibleBar(){
-        vs.visible = false;
+      function setVisibleBar(){
+        vs.visible = true;
         vs.load;
       }
       VK.Auth.getLoginStatus(function(response){
         console.log(response.status)
-        if (response.status == 'connected'){
-          hideVisibleBar
+        if (response.status != 'connected'){
+          setVisibleBar
         }
       })
     },
