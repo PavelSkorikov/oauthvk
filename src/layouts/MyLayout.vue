@@ -1,8 +1,9 @@
 <template>
 <q-layout view="lHh Lpr lFf">
+  {{start}}
   <q-tabs
     v-model="tab"
-    v-show="visible"
+    v-if="visible"
     inline-label
     class="bg-primary text-white shadow-2">
     <q-tab name="auth" @click="load" icon="people" label="Авторизация" />
@@ -33,7 +34,7 @@ export default {
     }
   },
   methods: {
-    beforeUpdate(){
+    start() {
       var vs = this
       function hideVisibleBar(){
         vs.visible = false;
@@ -41,7 +42,7 @@ export default {
       }
       VK.Auth.getLoginStatus(function(response){
         if (response.status == 'connected'){
-          console.log('user_autorised')
+          console.log(response.status)
           hideVisibleBar
         }
       })
