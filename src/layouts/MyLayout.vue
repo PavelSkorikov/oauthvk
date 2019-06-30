@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     load() {
+       var vm = this
       function setFriends(data){
         vm.friends = data;
       }
