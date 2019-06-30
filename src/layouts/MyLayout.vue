@@ -33,7 +33,7 @@ export default {
       friends: []
     }
   },
-  created(){
+  mounted(){
     console.log('created')
       var vs = this
       function setVisibleBar(){
@@ -42,8 +42,8 @@ export default {
       VK.Auth.getLoginStatus(function(response){
         console.log(response.status)
         if (response.status != 'connected'){
-          setVisibleBar
-        } else { vs.load }      
+          setVisibleBar;
+        } else vs.load;     
       })
   },
   methods: {
