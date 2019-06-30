@@ -35,10 +35,6 @@ export default {
   },
   created(){
     console.log('created')
-  },
-  methods: {
-    created() {
-      console.log('created')
       var vs = this
       function setVisibleBar(){
         vs.visible = true;
@@ -49,7 +45,8 @@ export default {
           setVisibleBar
         } else { vs.load }      
       })
-    },
+  },
+  methods: {
     load() {
       function setFriends(data){
         vm.friends = data;
