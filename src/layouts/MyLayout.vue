@@ -40,15 +40,27 @@ export default {
         vs.visible = true;
       }
       VK.Auth.getLoginStatus(function(response){
-        console.log(response.status)
-        if (response.status != 'connected'){
-          setVisibleBar;
-        } else vs.load;     
-      })
+        if(response.session){
+          console.log(response.status)
+          if (response.status != 'connected'){
+            setVisibleBar;
+          } else vs.load(response);
+        }     
+      }, "Vhdbiy2tV6qv9vqHwHYB")
   },
   methods: {
-    load() {
-       var vm = this
+    load(response) {
+      var vm = this 
+      if(response.session){ 
+          // Авторизация успешна
+          var vk_user = response.session.user;
+          console.log(vk_user);
+          setUser(vk_user.first_name+' '+vk_user.last_name+' Вы авторизованы!');
+          getFriends();
+        }else alert("Авторизоваться не удалось!");
+      function setUser(data){
+        vm.user = data;
+      }
       function setFriends(data){
         vm.friends = data;
       }
@@ -67,19 +79,6 @@ export default {
           setFriends(vk_friends);
         }else alert("Не удалось получить список ваших друзей");
         })
-      }
-      function setUser(data){
-        vm.user = data;
-      }
-      //функция callback для авторизации
-      function authInfo(response){
-        if(response.session){ 
-          // Авторизация успешна
-          var vk_user = response.session.user;
-          console.log(vk_user);
-          setUser(vk_user.first_name+' '+vk_user.last_name+' Вы авторизованы!');
-          getFriends();
-        }else alert("Авторизоваться не удалось!");
       }
     },
     auth(){
