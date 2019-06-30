@@ -5,7 +5,7 @@
     v-model="tab"
     inline-label
     class="bg-primary text-white shadow-2">
-    <q-tab name="auth" @click="load" icon="people" label="Авторизация" />
+    <q-tab name="auth" @click="auth" icon="people" label="Авторизация" />
   </q-tabs>
  </template>
 
@@ -80,11 +80,10 @@ export default {
           getFriends();
         }else alert("Авторизоваться не удалось!");
       }
-      //авторизация в ВК
+    },
+    auth(){
       var vm = this
-      VK.Auth.login(authInfo, "Vhdbiy2tV6qv9vqHwHYB")
-      
-      
+      VK.Auth.login(vm.load, "Vhdbiy2tV6qv9vqHwHYB")
     } 
   }
 }
