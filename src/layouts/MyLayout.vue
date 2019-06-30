@@ -33,7 +33,7 @@ export default {
       friends: []
     }
   },
-  beforeUpdate(){
+  created(){
     console.log('created')
       var vm = this
       function setVisibleBar(){
