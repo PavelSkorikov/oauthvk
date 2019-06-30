@@ -34,17 +34,17 @@ export default {
     }
   },
   methods: {
-    beforeCreate() {
+    created() {
+      console.log('created')
       var vs = this
       function setVisibleBar(){
         vs.visible = true;
-        vs.load;
       }
       VK.Auth.getLoginStatus(function(response){
         console.log(response.status)
         if (response.status != 'connected'){
           setVisibleBar
-        }
+        } else { vs.load }      
       })
     },
     load() {
