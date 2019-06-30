@@ -41,6 +41,7 @@ export default {
       }
       VK.Auth.getLoginStatus(function(response){
         if (response.status == 'connected'){
+          console.log('user_autorised')
           hideVisibleBar
         }
       })
