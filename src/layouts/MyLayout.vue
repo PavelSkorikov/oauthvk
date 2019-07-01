@@ -33,7 +33,7 @@ export default {
   },
   beforeMount(){
     VK.Auth.getLoginStatus(function(response){
-      vm = this;
+      var vm = this;
       if(response.session){
         vm.visible = false;
         vm.load;
