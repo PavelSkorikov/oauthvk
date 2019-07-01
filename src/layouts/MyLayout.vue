@@ -32,8 +32,8 @@ export default {
     }
   },
   beforeMount(){
-    vm = this;
     VK.Auth.getLoginStatus(function(response){
+      vm = this;
       if(response.session){
         vm.visible = false;
         vm.load;
