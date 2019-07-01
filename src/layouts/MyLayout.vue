@@ -28,19 +28,24 @@ export default {
     return {
       user: '',
       friends: [],
-      visible: false
+      visible: false,
     }
   },
-  beforeMount(){
-    VK.Auth.getLoginStatus(function(response){
-      var vm = this;
-      if(response.session){
-        vm.visible = false;
-        vm.load;
+  computed: {
+    login: {
+      set: function(){
+        VK.Auth.getLoginStatus(function(response){
+        var vm = this;
+        if(response.session){
+          vm.visible = false;
+          vm.load;
+        }
+        else vm.visible = true;
+        }, "Vhdbiy2tV6qv9vqHwHYB")
       }
-      else vm.visible = true;
-    }, "Vhdbiy2tV6qv9vqHwHYB")
-  },
+    }
+  }, 
+    
   methods: {
     load(response) {
       var vm = this 
