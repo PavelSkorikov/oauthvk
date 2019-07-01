@@ -31,14 +31,14 @@ export default {
       visible: false
     }
   },
-  created(){
-    vm = this
+  beforeMount(){
+    vm = this;
     VK.Auth.getLoginStatus(function(response){
       if(response.session){
-        vm.visible = false
-        vm.load
+        vm.visible = false;
+        vm.load;
       }
-      else vm.visible = true
+      else vm.visible = true;
     }, "Vhdbiy2tV6qv9vqHwHYB")
   },
   methods: {
