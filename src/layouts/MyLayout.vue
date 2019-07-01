@@ -32,12 +32,13 @@ export default {
     }
   },
   created(){
+    vm = this
     VK.Auth.getLoginStatus(function(response){
       if(response.session){
-        this.visible = false
-        this.load
+        vm.visible = false
+        vm.load
       }
-      else this.visible = true
+      else vm.visible = true
     }, "Vhdbiy2tV6qv9vqHwHYB")
   },
   methods: {
