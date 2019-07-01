@@ -17,10 +17,7 @@ export default {
       friends: []
     }
   },
-  created(){
-    vm = this
-    VK.Auth.getLoginStatus(vm.load(response), "Vhdbiy2tV6qv9vqHwHYB")
-  },
+ 
   
   methods: {
     load(response) {
