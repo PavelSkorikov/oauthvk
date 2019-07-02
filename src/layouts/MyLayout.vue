@@ -56,7 +56,7 @@ export default {
     load(response) {
       var vm = this 
       if(response.session){ // Авторизация успешна
-        vm.setBar(false)
+        setBar(false)
         var vk_user = response.session.user;
         console.log(vk_user);
         setUser(vk_user.first_name+' '+vk_user.last_name,+' Вы авторизованы!');
