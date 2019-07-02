@@ -62,7 +62,7 @@ export default {
         setUser(vk_user.first_name+' '+vk_user.last_name,+' Вы авторизованы!');
         getFriends();
       }else alert("Авторизоваться не удалось!");
-    }
+    
       function setUser(data){
         vm.user = data;
       }
