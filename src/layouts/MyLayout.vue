@@ -36,11 +36,14 @@ export default {
     function setBar(bool){
         vm.visible = bool;
       }
+    function setLoad(){
+      vm.load
+    }
     VK.Auth.getLoginStatus(function(response){
       if(response.session){
         console.log(response.session)
         setBar(false)
-        vm.load;
+        setLoad
       }
       else {
         console.log('no session')
