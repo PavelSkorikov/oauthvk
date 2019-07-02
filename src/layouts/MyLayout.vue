@@ -55,11 +55,14 @@ export default {
   methods: {
     load(response) {
       var vm = this 
-      var vk_user = response.session.user;
-      console.log(vk_user);
-      setUser(vk_user.first_name+' '+vk_user.last_name,+' Вы авторизованы!');
-      getFriends();
-        
+      if(response.session){ // Авторизация успешна
+        vm.setBar(false)
+        var vk_user = response.session.user;
+        console.log(vk_user);
+        setUser(vk_user.first_name+' '+vk_user.last_name,+' Вы авторизованы!');
+        getFriends();
+      }else alert("Авторизоваться не удалось!");
+    }
       function setUser(data){
         vm.user = data;
       }
