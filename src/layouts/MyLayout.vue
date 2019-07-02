@@ -92,7 +92,7 @@ export default {
     },
     auth(){
       var vm = this
-      VK.Auth.login(vm.load, '7036301')
+      VK.Auth.login(vm.load)
     } 
   }
 }
