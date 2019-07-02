@@ -28,7 +28,7 @@ export default {
     return {
       user: '',
       friends: [],
-      visible: false,
+      visible: true,
     }
   },
   mounted() {
