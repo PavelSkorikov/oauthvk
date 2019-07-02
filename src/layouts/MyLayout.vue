@@ -31,6 +31,7 @@ export default {
       visible: false,
     }
   },
+  //при создании компонента vue проверка авторизации 
   created() {
     var vm = this;
     function setBar(bool){
@@ -91,7 +92,7 @@ export default {
     },
     auth(){
       var vm = this
-      VK.Auth.login(vm.load, "Vhdbiy2tV6qv9vqHwHYB")
+      VK.Auth.login(vm.load, VK.access.FRIENDS)
     } 
   }
 }
