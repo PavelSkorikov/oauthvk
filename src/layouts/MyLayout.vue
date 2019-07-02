@@ -1,6 +1,5 @@
 <template>
 <q-layout view="lHh Lpr lFf">
-  {{login}}
   <template v-if="visible">
   <q-tabs
     v-model="tab"
@@ -32,24 +31,23 @@ export default {
       visible: false,
     }
   },
-  computed: {
-    login: {
-      set: function(){
-        VK.Auth.getLoginStatus(function(response){
-        var vm = this;
-        if(response.session){
-          console.log(response.session)
-          vm.visible = false;
-          vm.load(response);
-        }
-        else{
-          console.log('no session')
-          vm.visible = true;
-        }
-        }, "Vhdbiy2tV6qv9vqHwHYB")
+  mounted() {
+    VK.init({
+      apiId: 7036301
+    })
+    VK.Auth.getLoginStatus(function(response){
+      var vm = this;
+      if(response.session){
+        console.log(response.session)
+        vm.visible = false;
+        vm.load(response);
       }
-    }
-  }, 
+      else {
+        console.log('no session')
+        vm.visible = true;
+      }
+    }, "Vhdbiy2tV6qv9vqHwHYB")
+  },
     
   methods: {
     load(response) {
