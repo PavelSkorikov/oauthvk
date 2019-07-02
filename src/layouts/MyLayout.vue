@@ -31,10 +31,21 @@ export default {
       visible: false,
     }
   },
+  beforeCreate() {
+        window.vkAsyncInit = function() {
+          VK.init({
+            apiId: 7036301
+          });
+        };
+        setTimeout(function() {
+          var el = document.createElement("script");
+          el.type = "text/javascript";
+          el.src = "//vk.com/js/api/openapi.js?161";
+          el.async = true;
+          document.getElementById("vk_api_transport").appendChild(el);
+        }, 0);
+  },
   mounted() {
-    VK.init({
-      apiId: 7036301
-    })
     VK.Auth.getLoginStatus(function(response){
       var vm = this;
       if(response.session){
