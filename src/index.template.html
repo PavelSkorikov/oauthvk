@@ -14,25 +14,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="statics/icons/favicon-96x96.png">
     <link rel="icon" type="image/ico" href="statics/icons/favicon.ico">
+    <script src="//vk.com/js/api/openapi.js?161" type="text/javascript"></script>
   </head>
   <body>
-      <div id="vk_api_transport"></div>  
-      <script type="text/javascript">
-        window.vkAsyncInit = function() {
-          VK.init({
-            apiId: 7036301,
-            status: true
-          });
-        };
-        setTimeout(function() {
-          var el = document.createElement("script");
-          el.type = "text/javascript";
-          el.src = "//vk.com/js/api/openapi.js?161";
-          el.async = true;
-          document.getElementById("vk_api_transport").appendChild(el);
-        }, 0);
-      </script>
     <!-- DO NOT touch the following DIV -->
     <div id="q-app"></div>
+    <script type="text/javascript">
+      VK.init({
+        apiId: 7036301
+      });
+    </script>
   </body>
 </html>
