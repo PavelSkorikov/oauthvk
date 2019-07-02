@@ -92,7 +92,7 @@ export default {
     },
     auth(){
       var vm = this
-      VK.Auth.login(vm.load, VK.access.FRIENDS)
+      VK.Auth.login(vm.load, vk.appPermissions)
     } 
   }
 }
