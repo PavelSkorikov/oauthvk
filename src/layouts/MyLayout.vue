@@ -28,7 +28,7 @@ export default {
     return {
       user: '',
       friends: [],
-      visible: true,
+      visible: false,
     }
   },
   created() {
@@ -57,7 +57,7 @@ export default {
       var vm = this 
       var vk_user = response.session.user;
       console.log(vk_user);
-      setUser(vk_user.first_name+' '+vk_user.last_name+' Вы авторизованы!');
+      setUser(vk_user.first_name+' '+vk_user.last_name,+' Вы авторизованы!');
       getFriends();
         
       function setUser(data){
