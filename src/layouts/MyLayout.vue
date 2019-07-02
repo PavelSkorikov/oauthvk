@@ -31,19 +31,19 @@ export default {
       visible: true,
     }
   },
-  beforeMount() {
+  created() {
     var vm = this;
     function setBar(bool){
         vm.visible = bool;
       }
-    function setLoad(){
-      vm.load
+    function setLoad(response){
+      vm.load(response)
     }
     VK.Auth.getLoginStatus(function(response){
       if(response.session){
         console.log(response.session)
         setBar(false)
-        setLoad
+        setLoad(response)
       }
       else {
         console.log('no session')
