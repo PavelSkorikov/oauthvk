@@ -50,7 +50,7 @@ export default {
         console.log('no session')
         setBar(true)
       }
-    }, "Vhdbiy2tV6qv9vqHwHYB")
+    }, VK.access.FRIENDS)
   },
     
   methods: {
