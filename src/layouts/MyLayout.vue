@@ -32,16 +32,19 @@ export default {
     }
   },
   mounted() {
+    var vm = this;
+    function setBar(bool){
+        vm.visible = bool;
+      }
     VK.Auth.getLoginStatus(function(response){
-      var vm = this;
       if(response.session){
         console.log(response.session)
-        vm.visible = false;
+        setBar(false)
         vm.load;
       }
       else {
         console.log('no session')
-        vm.visible = true;
+        setBar(true)
       }
     }, "Vhdbiy2tV6qv9vqHwHYB")
   },
