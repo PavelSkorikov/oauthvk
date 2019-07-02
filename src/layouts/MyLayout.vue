@@ -31,7 +31,7 @@ export default {
       visible: true,
     }
   },
-  mounted() {
+  beforeMount() {
     var vm = this;
     function setBar(bool){
         vm.visible = bool;
