@@ -1,28 +1,28 @@
 <template>
 <q-layout view="lHh Lpr lFf">
-  <template v-if="visible">
   <q-tabs
     v-model="tab"
     inline-label
     class="bg-primary text-white shadow-2">
-    <q-tab name="auth" @click="auth" icon="people" label="Авторизация" />
+    <q-tab v-if="visible" name="auth" @click="auth" icon="people" label="Авторизация" />
+    <q-tab v-if="!visible" name="logout" @click="logout" icon="meeting_room" label="Авторизация" />
   </q-tabs>
-  </template>
 
   <div class="row">
     <div class="col-2"></div>
+    <template v-if="!visible">
     <div class="col-8">
          <h4>{{user}}</h4><br>
          <div>
-           <h6 v-if="!visible">Ваши 5 друзей из vk.com</h6>
+           <h6>Ваши 5 друзей из vk.com</h6>
            <ul>
             <li v-for="friend in friends"> 
               <p> <img :src="friend.photo_50"> {{friend.first_name}} {{friend.last_name}} (День рождения: <font color="blue">{{friend.bdate}}</font>)</p>
               </li>
           </ul>
          </div>
-         
     </div>
+    </template>
     <div class="col-2"></div>
   </div>
 
@@ -88,11 +88,6 @@ export default {
         if(r.response){
           r = r.response.items;
           console.log(r);
-          var vk_friends = [];
-          for(var i = 0; i < 5; ++i){
-            //vk_friends[i] = r[i]["first_name"]+' '+r[i]["last_name"]+' ('+r[i]["id"]+')';
-          }
-          //console.log(vk_friends);
           setFriends(r);
         }else alert("Не удалось получить список ваших друзей");
         })
@@ -101,6 +96,15 @@ export default {
     auth(){
       var vm = this
       VK.Auth.login(vm.load, VK.access.FRIENDS)
+    },
+    logout(){
+      var vm = this;
+      function setBar(bool){
+          vm.visible = bool;
+        }
+      VK.Auth.logout(function(){
+       if(response.session==null) setBar(true) 
+      })
     } 
   }
 }
