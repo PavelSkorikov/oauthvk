@@ -17,7 +17,7 @@
            <h6>Ваши 5 друзей из vk.com</h6>
            <ul>
             <li v-for="friend in friends"> 
-              <p> <img src={{friend.photo_50}}> {{friend.first_name}} {{friend.last_name}} ({{friend.nickname}})</p>
+              <p> <img :src="friend.photo_50"> {{friend.first_name}} {{friend.last_name}} ({{friend.nickname}})</p>
               </li>
           </ul>
          </div>
