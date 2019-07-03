@@ -48,15 +48,15 @@ export default {
     function setLoad(response){
       vm.load(response)
     }
-    VK.Auth.getLoginStatus(function(response){
+    VK.Auth.getLoginStatus((response)=>{
       if(response.session){
         console.log(response.session)
-        setBar(false)
-        setLoad(response)
+        this.visible=false
+        this.load(response)
       }
       else {
         console.log('no session')
-        setBar(true)
+        this.visible=true
       }
     }, VK.access.FRIENDS)
   },
@@ -97,11 +97,8 @@ export default {
       var vm = this
       VK.Auth.login(vm.load, VK.access.FRIENDS)
     },
+
     logout(){
-      var vm = this;
-      function setBar(bool){
-          vm.visible = bool;
-        }
       VK.Auth.logout(()=>{
        this.visible=true
       })
