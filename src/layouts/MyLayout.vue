@@ -103,10 +103,10 @@ export default {
           vm.visible = bool;
         }
       VK.Auth.logout(function(){
-       if(response.status=="unknown"){
+       
          setBar(true)
-       }  
-      }, VK.access.FRIENDS)
+        
+      })
     } 
   }
 }
