@@ -17,7 +17,7 @@
            <h6>Ваши 5 друзей из vk.com</h6>
            <ul>
             <li v-for="friend in friends"> 
-              <p> {{friend.first_name}} {{friend.last_name}}(id: {{friend.id}})</p>
+              <p> {{friend.photo_50}} {{friend.first_name}} {{friend.last_name}} (id: {{friend.id}})</p>
               </li>
           </ul>
          </div>
@@ -83,7 +83,7 @@ export default {
       }
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name'], count: "5", v: "5.8"}, 
+        VK.Api.call('friends.get', {fields: ['uid', 'first_name', 'last_name', 'photo_50'], count: "5", v: "5.8"}, 
         function(r){
         if(r.response){
           r = r.response.items;
