@@ -13,7 +13,16 @@
     <div class="col-2"></div>
     <div class="col-8">
          <h4>{{user}}</h4><br>
-         {{friends}}
+         <div>
+           <ul>
+            <li v-for="friend in friends"> 
+              <p> Имя: {{friend.first_name}}</p>
+              <p>Фамилия: {{friend.last_name}}</p>
+              <p>id: {{friend.id}}</p>
+              </li>
+          </ul>
+         </div>
+         
     </div>
     <div class="col-2"></div>
   </div>
@@ -82,10 +91,10 @@ export default {
           console.log(r);
           var vk_friends = [];
           for(var i = 0; i < 5; ++i){
-            vk_friends[i] = r[i]["first_name"]+' '+r[i]["last_name"]+' ('+r[i]["id"]+')';
+            //vk_friends[i] = r[i]["first_name"]+' '+r[i]["last_name"]+' ('+r[i]["id"]+')';
           }
-          console.log(vk_friends);
-          setFriends(vk_friends);
+          //console.log(vk_friends);
+          setFriends(r);
         }else alert("Не удалось получить список ваших друзей");
         })
       }
