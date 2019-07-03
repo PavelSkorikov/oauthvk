@@ -106,7 +106,7 @@ export default {
        if(response.status=="unknown"){
          setBar(true)
        }  
-      })
+      }, VK.access.FRIENDS)
     } 
   }
 }
