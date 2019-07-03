@@ -102,10 +102,8 @@ export default {
       function setBar(bool){
           vm.visible = bool;
         }
-      VK.Auth.logout(function(){
-       
-         setBar(true)
-        
+      VK.Auth.logout(()=>{
+       this.visible=true
       })
     } 
   }
