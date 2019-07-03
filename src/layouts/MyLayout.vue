@@ -14,7 +14,7 @@
     <div class="col-8">
          <h4>{{user}}</h4><br>
          <div>
-           <h6>Ваши 5 друзей из vk.com</h6>
+           <h6 v-if="!visible">Ваши 5 друзей из vk.com</h6>
            <ul>
             <li v-for="friend in friends"> 
               <p> <img :src="friend.photo_50"> {{friend.first_name}} {{friend.last_name}} (День рождения: <font color="blue">{{friend.bdate}}</font>)</p>
