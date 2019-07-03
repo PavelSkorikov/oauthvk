@@ -5,7 +5,7 @@
     inline-label
     class="bg-primary text-white shadow-2">
     <q-tab v-if="visible" name="auth" @click="auth" icon="people" label="Авторизация" />
-    <q-tab v-if="!visible" name="logout" @click="logout" icon="meeting_room" label="Авторизация" />
+    <q-tab v-if="!visible" name="logout" @click="logout" icon="meeting_room" label="Выход" />
   </q-tabs>
 
   <div class="row">
