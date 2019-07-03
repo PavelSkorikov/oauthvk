@@ -103,7 +103,7 @@ export default {
           vm.visible = bool;
         }
       VK.Auth.logout(function(){
-       if(response.session==null) setBar(true) 
+       if(!response.session) setBar(true) 
       })
     } 
   }
