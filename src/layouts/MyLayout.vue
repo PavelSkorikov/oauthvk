@@ -59,21 +59,13 @@ export default {
     load(response) {
       var vm = this 
       if(response.session){ // Авторизация успешна
-        //setBar(false)
         this.visible = false
         var vk_user = response.session.user;
         console.log(vk_user);
-        //setUser(vk_user.first_name+' '+vk_user.last_name+', Вы авторизованы!');
         this.user = vk_user.first_name+' '+vk_user.last_name+', Вы авторизованы!'
         getFriends();
       }else alert("Авторизоваться не удалось!");
       
-      function setBar(bool){
-        vm.visible = bool;
-      }
-      function setUser(data){
-        vm.user = data;
-      }
       function setFriends(data){
         vm.friends = data;
       }
@@ -89,11 +81,11 @@ export default {
         })
       }
     },
+    //метод аутентификации и последующий вывод информации
     auth(){
-      //var vm = this
       VK.Auth.login(()=>this.load(response), VK.access.FRIENDS)
     },
-
+    //метод loguot из api приложения
     logout(){
       VK.Auth.logout(()=>{
        this.visible=true
