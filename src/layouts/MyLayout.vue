@@ -41,13 +41,6 @@ export default {
   },
   //при создании компонента vue проверка авторизации 
   created() {
-    var vm = this;
-    function setBar(bool){
-        vm.visible = bool;
-      }
-    function setLoad(response){
-      vm.load(response)
-    }
     VK.Auth.getLoginStatus((response)=>{
       if(response.session){
         console.log(response.session)
@@ -62,13 +55,16 @@ export default {
   },
     
   methods: {
+    //получение данных о пользователе и его друзьях
     load(response) {
       var vm = this 
       if(response.session){ // Авторизация успешна
-        setBar(false)
+        //setBar(false)
+        this.visible = false
         var vk_user = response.session.user;
         console.log(vk_user);
-        setUser(vk_user.first_name+' '+vk_user.last_name+', Вы авторизованы!');
+        //setUser(vk_user.first_name+' '+vk_user.last_name+', Вы авторизованы!');
+        this.user = vk_user.first_name+' '+vk_user.last_name+', Вы авторизованы!'
         getFriends();
       }else alert("Авторизоваться не удалось!");
       
@@ -88,14 +84,15 @@ export default {
         if(r.response){
           r = r.response.items;
           console.log(r);
-          setFriends(r);
+          //setFriends(r);
+          this.friends = r;
         }else alert("Не удалось получить список ваших друзей");
         })
       }
     },
     auth(){
       var vm = this
-      VK.Auth.login(vm.load, VK.access.FRIENDS)
+      VK.Auth.login(()=>load, VK.access.FRIENDS)
     },
 
     logout(){
