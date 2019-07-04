@@ -71,13 +71,12 @@ export default {
       }
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', {fields: ['first_name', 'last_name', 'photo_50', 'bdate'], count: "5", order: "random", v: "5.8"}, (r)=>
+        VK.Api.call('friends.get', {fields: ['first_name', 'last_name', 'photo_50', 'bdate'], count: "5", order: "random", v: "5.8"},
         function(r){
         if(r.response){
           r = r.response.items;
           console.log(r);
-          this.friends = r;
-          //setFriends(r);
+          setFriends(r);
         }else alert("Не удалось получить список ваших друзей");
         })
       }
