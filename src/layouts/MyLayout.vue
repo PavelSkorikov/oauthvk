@@ -83,7 +83,9 @@ export default {
     },
     //метод аутентификации и последующий вывод информации
     auth(){
-      VK.Auth.login(()=>this.load, VK.access.FRIENDS)
+      VK.Auth.login((response)=>{
+        this.load(response)
+      }, VK.access.FRIENDS)
     },
     //метод loguot из api приложения
     logout(){
