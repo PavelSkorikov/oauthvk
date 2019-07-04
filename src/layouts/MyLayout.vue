@@ -79,7 +79,7 @@ export default {
       }
       //функция сбора и вывода информации о друзьях
       function getFriends(){
-        VK.Api.call('friends.get', {fields: ['first_name', 'last_name', 'photo_50', 'bdate'], count: "5", order: "random", v: "5.8"}, 
+        VK.Api.call('friends.get', {fields: ['first_name', 'last_name', 'photo_50', 'bdate'], count: "5", order: "random", v: "5.8"},()=> 
         function(r){
         if(r.response){
           r = r.response.items;
@@ -91,8 +91,8 @@ export default {
       }
     },
     auth(){
-      var vm = this
-      VK.Auth.login(()=>load, VK.access.FRIENDS)
+      //var vm = this
+      VK.Auth.login(()=>this.load(response), VK.access.FRIENDS)
     },
 
     logout(){
