@@ -1,3 +1,1 @@
-# Quasar App
-
-> WIP
+Приложение создано с использованием Vue.js and Quasar
